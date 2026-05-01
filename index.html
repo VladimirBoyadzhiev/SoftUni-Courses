@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Asset Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Технологично портфолио</h1>
+    <p>Интерактивна платформа за представяне на дигитални и хардуерни активи пред партньори и инвеститори.</p>
+    <input id="search" type="search" placeholder="Търси актив..." />
+  </header>
+
+  <main>
+    <section>
+      <h2>Софтуер</h2>
+      <div id="software" class="grid"></div>
+    </section>
+    <section>
+      <h2>Хардуер</h2>
+      <div id="hardware" class="grid"></div>
+    </section>
+    <section>
+      <h2>XR / VR</h2>
+      <div id="xr" class="grid"></div>
+    </section>
+  </main>
+
+  <dialog id="assetDialog">
+    <article>
+      <button id="closeDialog">✕</button>
+      <img id="dialogImage" alt="" />
+      <h3 id="dialogTitle"></h3>
+      <p id="dialogDescription"></p>
+      <p><strong>Бизнес стойност:</strong> <span id="dialogValue"></span></p>
+      <p><a id="dialogSource" target="_blank" rel="noopener noreferrer">Източник на информация</a></p>
+    </article>
+  </dialog>
+
+  <footer>
+    <p>Създадено като интерактивно портфолио. Данните са обобщени от официални продуктови страници.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
