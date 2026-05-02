@@ -1,37 +1,47 @@
-:root {
-  --bg:#070b16; --panel:#0f172a; --text:#e5ecff; --muted:#9fb0db;
-  --acc1:#3b82f6; --acc2:#7c3aed; --line:#233153;
+const capabilities = [
+  { title:"AI & Machine Learning", description:"Model prototyping, automation pipelines, and data-driven decision engines.", useCase:"Use case: predictive scoring and optimization for operations." },
+  { title:"XR / Mixed Reality", description:"Immersive interfaces for training, remote collaboration, and simulation.", useCase:"Use case: XR onboarding and maintenance simulation workflows." },
+  { title:"Digital Twins (PropTech)", description:"Virtual replicas of assets and spaces with real-time monitoring layers.", useCase:"Use case: smart building performance twin for energy optimization." },
+  { title:"Smart Agriculture", description:"Sensor-based intelligence for crop, irrigation, and microclimate decisions.", useCase:"Use case: AI-assisted irrigation scheduling from IoT field data." },
+  { title:"3D Digital Art", description:"Generative visuals and environments for product storytelling and brand worlds.", useCase:"Use case: procedural 3D showcase spaces for marketing campaigns." },
+  { title:"Cloud & DevOps", description:"Scalable deployment architecture with CI/CD and observability.", useCase:"Use case: cloud-native rollout of AI services for pilot clients." },
+  { title:"Cybersecurity", description:"Security-first approach for infrastructure, data workflows, and endpoints.", useCase:"Use case: secure-by-design architecture for partner integrations." }
+];
+
+const infrastructure = {
+  software:["Adobe Creative Cloud","Adobe Substance 3D","ChatGPT","Microsoft Copilot","Google Gemini"],
+  hardware:["High-end PC (i9, RTX 4070, 64GB RAM)","XR Headsets (HTC Vive, Meta Quest, PSVR)","DJI Drone","Raspberry Pi","Arduino + sensors","3D Printers (Ultimaker, Snapmaker)","Haptics Suit"],
+  setup:["XR lab","AI experimentation","IoT + Computer Vision"]
+};
+
+const areas = ["AI Digital Twins","XR Platforms","Smart Agriculture Systems","Generative 3D Environments"];
+
+function renderCards() {
+  document.getElementById("capabilities").innerHTML = capabilities.map(c => `
+    <article class="card reveal">
+      <h3>${c.title}</h3>
+      <p>${c.description}</p>
+      <span class="usecase">${c.useCase}</span>
+    </article>
+  `).join("");
+
+  document.getElementById("innovationAreas").innerHTML = areas.map(a => `
+    <article class="card reveal"><h3>${a}</h3><p>Focused development stream for scalable, partner-ready innovation outcomes.</p></article>
+  `).join("");
+
+  const fillList = (id, items) => document.getElementById(id).innerHTML = items.map(i => `<li>${i}</li>`).join("");
+  fillList("softwareList", infrastructure.software);
+  fillList("hardwareList", infrastructure.hardware);
+  fillList("setupList", infrastructure.setup);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:'Inter',system-ui,sans-serif;background:radial-gradient(circle at 80% -10%,#1e3a8a33,transparent 40%),var(--bg);color:var(--text)}
-.container{width:min(1120px,92%);margin:auto}
-.hero{position:relative;min-height:74vh;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(120deg,#1e1b4b,#0c4a6e 45%,#312e81);opacity:.85}
-.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff22 1px,transparent 1px);background-size:28px 28px;animation:drift 30s linear infinite}
-@keyframes drift{from{transform:translateY(0)}to{transform:translateY(28px)}}
-.nav,.hero-content{position:relative;z-index:2}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0}
-.brand{font-weight:700}
-.hero-content{padding:6rem 0 4rem}
-.kicker{color:#c7d2fe;font-weight:600}
-h1{font-size:clamp(2rem,4vw,3.4rem);max-width:900px;margin:.6rem 0}
-.subtitle{max-width:760px;color:#d4dcff;font-size:1.08rem}
-.btn{display:inline-block;background:linear-gradient(90deg,var(--acc1),var(--acc2));color:white;padding:.8rem 1.2rem;border-radius:10px;text-decoration:none;font-weight:600;border:none}
-.btn-outline{background:transparent;border:1px solid #9fb0db66}
-.section{padding:4rem 0}
-h2{font-size:clamp(1.6rem,2.8vw,2.3rem);margin:.2rem 0 1rem}
-.section-sub,p{color:var(--muted);line-height:1.7}
-.grid{display:grid;gap:1rem}
-.cards-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.cards-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.card,.panel{background:linear-gradient(180deg,#101a33,#0c1326);border:1px solid var(--line);border-radius:14px;padding:1rem}
-.card h3,.panel h3{margin:.3rem 0}
-.usecase{font-size:.9rem;color:#cad6ff;background:#1f2b4d;padding:.45rem .6rem;border-radius:8px;display:block;margin-top:.6rem}
-.infra-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
-ul{padding-left:1rem;margin:.4rem 0}
-li{margin:.45rem 0;color:#d4ddff}
-.cta{background:linear-gradient(180deg,#0d1427,#0d142710);border:1px solid var(--line);border-radius:16px;padding:2rem}
-.footer{padding:1.4rem;text-align:center;color:#8fa1cc;border-top:1px solid var(--line);margin-top:3rem}
-.reveal{opacity:0;transform:translateY(22px);transition:.65s ease}
-.reveal.visible{opacity:1;transform:none}
+
+function setupReveal() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+renderCards();
+setupReveal();
