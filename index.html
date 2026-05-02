@@ -1,47 +1,73 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Asset Portfolio</title>
+  <title>AI Innovation Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="hero">
-    <h1>Технологично портфолио</h1>
-    <p>Интерактивна платформа за представяне на дигитални и хардуерни активи пред партньори и инвеститори.</p>
-    <input id="search" type="search" placeholder="Търси актив..." />
+  <header class="hero" id="top">
+    <nav class="nav container">
+      <div class="brand">AI Innovation Hub</div>
+      <a href="#contact" class="btn btn-outline">Contact</a>
+    </nav>
+    <div class="hero-bg"></div>
+    <div class="container hero-content reveal">
+      <p class="kicker">Investor-ready startup concept</p>
+      <h1>AI Innovation Hub for XR, Digital Twins & Smart Ecosystems</h1>
+      <p class="subtitle">Designing intelligent systems at the intersection of AI, Mixed Reality, Smart Agriculture, and Digital Infrastructure.</p>
+      <a href="#projects" class="btn">Explore Projects</a>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>Софтуер</h2>
-      <div id="software" class="grid"></div>
+    <section class="section container reveal" id="about">
+      <h2>About</h2>
+      <p>This initiative represents the foundation of an AI Innovation Hub integrating Artificial Intelligence, XR, Digital Twins, and Smart Agriculture into a unified ecosystem.</p>
     </section>
-    <section>
-      <h2>Хардуер</h2>
-      <div id="hardware" class="grid"></div>
+
+    <section class="section container" id="projects">
+      <h2 class="reveal">Capabilities & Technologies</h2>
+      <div class="grid cards-3" id="capabilities"></div>
     </section>
-    <section>
-      <h2>XR / VR</h2>
-      <div id="xr" class="grid"></div>
+
+    <section class="section container" id="infrastructure">
+      <h2 class="reveal">My Tools & Infrastructure</h2>
+      <p class="section-sub reveal">A ready innovation lab designed to accelerate product experiments, pilot deployments, and partner co-creation.</p>
+      <div class="infra-grid">
+        <article class="panel reveal"><h3>Software</h3><ul id="softwareList"></ul></article>
+        <article class="panel reveal"><h3>Hardware</h3><ul id="hardwareList"></ul></article>
+        <article class="panel reveal"><h3>Experimental Setup</h3><ul id="setupList"></ul></article>
+      </div>
+    </section>
+
+    <section class="section container" id="areas">
+      <h2 class="reveal">Innovation Areas</h2>
+      <div class="grid cards-4" id="innovationAreas"></div>
+    </section>
+
+    <section class="section container reveal" id="vision">
+      <h2>Vision</h2>
+      <p>The goal is to evolve into a European-aligned AI Innovation Hub, participating in Digital Innovation Hub ecosystems and EU-funded projects.</p>
+    </section>
+
+    <section class="section cta container reveal" id="contact">
+      <h2>We are open to</h2>
+      <ul>
+        <li>Partnerships</li>
+        <li>Co-founders</li>
+        <li>EU projects</li>
+        <li>Pilot collaborations</li>
+      </ul>
+      <a class="btn" href="mailto:contact@example.com">Contact / Collaborate</a>
     </section>
   </main>
 
-  <dialog id="assetDialog">
-    <article>
-      <button id="closeDialog">✕</button>
-      <img id="dialogImage" alt="" />
-      <h3 id="dialogTitle"></h3>
-      <p id="dialogDescription"></p>
-      <p><strong>Бизнес стойност:</strong> <span id="dialogValue"></span></p>
-      <p><a id="dialogSource" target="_blank" rel="noopener noreferrer">Източник на информация</a></p>
-    </article>
-  </dialog>
-
-  <footer>
-    <p>Създадено като интерактивно портфолио. Данните са обобщени от официални продуктови страници.</p>
-  </footer>
+  <footer class="footer">© <span id="year"></span> AI Innovation Hub • Built for GitHub Pages</footer>
 
   <script src="script.js"></script>
 </body>
